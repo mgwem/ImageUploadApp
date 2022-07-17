@@ -32,7 +32,7 @@ class ImagesController < ApplicationController
 
   def show
     @image = Image.find(params[:id])
-    @image_url = "https://resize-mgw-img.s3-ap-northeast-1.amazonaws.com/#{@image.image.key}-thumbnail.jpeg"
+    @image_url = "https://resize-mgw-img.s3-ap-northeast-1.amazonaws.com/#{@image.image.key}-thumbnail.#{@image.image.content_type.gsub('image/','')}"
   end
 
   def destroy
